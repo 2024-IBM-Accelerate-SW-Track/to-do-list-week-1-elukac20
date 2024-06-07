@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Button, TextField } from "@mui/material";
 
 class AddTodo extends Component {
     // A local react state of the this component with a content property set to nothing.
@@ -37,7 +38,27 @@ class AddTodo extends Component {
         // an OnClick event.
         // 3. The value of the text field also should reflect the local state of this component.
         <div>
+          <TextField data-testid="new-item-textfield"
+          label="Add New Item"
+          variant="outlined"
+
+          //onChange={call handleChange here}
+          onChange={this.handleChange} //not handleChange()?
           
+          //value={set the content state here}
+          value={this.content}
+          />
+          <Button data-testid="new-item-button"
+          style={{ marginLeft: "10px" } }
+
+          //onClick={call handleSubmit here}
+          onClick={this.handleSubmit} 
+          variant="contained"
+          color="primary"
+          >
+          Add
+          </Button>
+
         </div>
       );
     }
