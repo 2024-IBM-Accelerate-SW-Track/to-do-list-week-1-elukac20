@@ -21,7 +21,7 @@ const Todos = ({ todos }) => {
               <CardContent>
                 <span style={{ padding: "20px" }}>
                   <ListItemButton>
-                    <Checkbox></Checkbox>
+                    <Checkbox color="success"></Checkbox>
                       <ListItemText>{todo.content}</ListItemText>
                   </ListItemButton>
                 </span>
