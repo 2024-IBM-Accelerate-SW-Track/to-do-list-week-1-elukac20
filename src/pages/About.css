@@ -20,7 +20,7 @@
 
 .left {
   left: 0;
-  background-color: #0f62fe;
+  background-color: #843232;
 }
 
 .right {
@@ -40,6 +40,7 @@
   color: black;
   text-align: left;
   padding-bottom: 20px;
+  padding-top: 25px;
 }
 
 .brief_description {
@@ -49,4 +50,6 @@
 .profile_image {
   width: 500px;
   height: auto;
+  padding-top: 50px
+  
 }
