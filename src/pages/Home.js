@@ -17,6 +17,12 @@ class Home extends Component {
       todos:[]
     };
   }
+  static removeTask = () => {
+    console.log("test")
+  
+  }
+
+
   // the addTodo function simply creates a new array that includes the user submitted todo item and then
   // updates the state with the new list.
   addTodo = (todo) => {
@@ -38,8 +44,9 @@ class Home extends Component {
       <div className="Home">
         
         <h1 > Todo's </h1>
-        <Todos todos={this.state.todos} />
         <AddTodo addTodo={this.addTodo} />
+        <Todos todos={this.state.todos} />
+        
         
       </div>
     );
