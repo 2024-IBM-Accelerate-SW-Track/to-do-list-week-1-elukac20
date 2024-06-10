@@ -28,7 +28,9 @@ const clearTask = () =>{
 const deleteTask = (id) =>{
   //alert(id)
   var indx = globalList.indexOf(document.getElementById(id))
-  globalList.splice(indx, 1);
+  
+  //globalList.splice(indx, 1);
+
   var itm = document.getElementById(id);
   itm.innerHTML="deleted"
   
