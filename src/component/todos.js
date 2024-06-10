@@ -5,7 +5,7 @@ import {Card,CardContent,Grid,ListItemButton,ListItemText,Checkbox,} from "@mui/
 import DeleteIconOutlined from '@mui/icons-material/Delete'
 
 
-
+var globalList;
 
 // 1. This component formats and returns the list of todos.
 // 2. Treat the question mark like an if statement.
@@ -16,18 +16,26 @@ import DeleteIconOutlined from '@mui/icons-material/Delete'
 // a key, and it's own card shown in the UI
 
 /*added this function to delete tasks*/
-const deleteTask = () =>{
-  alert("test")
+const clearTask = () =>{
+  for(var i=0; i<globalList.length; i++){
+    globalList.pop();
+  }
+}
+
+const deleteTask = (id) =>{
+  alert(id)
+  
 }
 
 const Todos = ({ todos }) => {
-
+    globalList = todos;
     const todoList = todos.length ? (
       
       todos.map((todo) => {
 
 
         return (
+          <div>
           <Grid key={todo.id}>
             <Card>
               {/* Remember, we set the local state of this todo item when the user submits the form in 
@@ -36,8 +44,9 @@ const Todos = ({ todos }) => {
                 <span style={{ padding: "20px" }}>
                   <ListItemButton>
                     <Checkbox color="success"></Checkbox>
-                      <ListItemText>{todo.content}</ListItemText>
-                        <button onClick={deleteTask}>
+                    
+                       <ListItemText>{todo.content}</ListItemText> 
+                       <button onClick={function(){deleteTask(todo.id)}}>
                           <DeleteIconOutlined></DeleteIconOutlined>
                         </button>
                       </ListItemButton>
@@ -45,6 +54,8 @@ const Todos = ({ todos }) => {
               </CardContent>
             </Card>
           </Grid>
+          <button onClick={clearTask}>Clear all Tasks</button>
+          </div>
         );
       })
     ) : (
@@ -57,7 +68,10 @@ const Todos = ({ todos }) => {
     // Lastly, return the todoList constant that we created above to show all of the items on the screen.
     return (
       <div className="todoCollection" style={{ padding: "10px" }}>
+        
+        <script>todoList = globalList</script>
         {todoList}
+        
       </div>
     );
 };
